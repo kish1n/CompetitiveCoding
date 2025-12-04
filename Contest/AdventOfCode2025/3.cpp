@@ -1,8 +1,5 @@
-#include "pch.h"
-
 using namespace std;
 using ll = long long;
-
 
 bool isGood(vector<string>& grid, int a, int b) {
 	int cnt = 0;

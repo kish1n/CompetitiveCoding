@@ -1,11 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
-#include <map>
-#include <unordered_set>
-#include <set>
-#include <string>
+#include "pch.h"
 
 using namespace std;
 
