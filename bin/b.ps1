@@ -36,7 +36,12 @@ $OutputFile = "out"
 $ExeFile = [System.IO.Path]::ChangeExtension($CppFile, ".exe")
 
 ### COMPILATION ###
-$CompileOptions = @("-Wall", "-Wextra", "-Wpedantic", "-Wshadow", "-std=c++17", "-O2")
+
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$pchDir = Join-Path $scriptDir "pch"
+$pchFile = Join-Path $pchDir pch.h.pch
+
+$CompileOptions = @("-Wall", "-Wextra", "-Wpedantic", "-Wshadow", "-std=c++17", "-O2", "-include-pch", $pchFile, "-I", $pchDir)
 $StartTime = Get-Date
 Write-Host "Compiling '$CppFile' with clang++..." -ForegroundColor Yellow
 clang++ "$CppFile" $CompileOptions -o "$ExeFile"
