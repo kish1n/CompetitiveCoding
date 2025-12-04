@@ -21,16 +21,16 @@ if (-Not (Test-Path $CppFile)) {
     exit 1
 }
 
-# Default input file to "input.txt" in the same directory as the C++ file if not provided
+# Default input file to "in" in the same directory as the C++ file if not provided
 if ($InputFile -eq "") {
-    $DefaultInputFile = "input.txt"
+    $DefaultInputFile = "in"
     if (Test-Path $DefaultInputFile) {
         $InputFile = $DefaultInputFile
     }
 }
 
 # Define output file path
-$OutputFile = "output.txt"
+$OutputFile = "out"
 
 # Generate the executable name (same name as source but with .exe extension)
 $ExeFile = [System.IO.Path]::ChangeExtension($CppFile, ".exe")
